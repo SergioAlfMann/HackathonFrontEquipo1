@@ -1,4 +1,5 @@
 import Navbar from "./Navbar";
+import { Accordion, AccordionTab } from 'primereact/accordion';
 
 const Training = () => {
     return (
