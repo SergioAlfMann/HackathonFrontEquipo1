@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import axios from 'axios';
 import { Toast } from 'primereact/toast';
 import { useNavigate } from 'react-router-dom';
+import Footer from './Footer'
 
 const Access = () => {
     let navigate = useNavigate();
@@ -55,6 +56,7 @@ const Access = () => {
                     </DataTable>
                 </div>
             </div>
+            <Footer/>
         </>
     );
 }

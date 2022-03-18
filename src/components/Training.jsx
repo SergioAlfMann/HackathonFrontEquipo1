@@ -6,6 +6,7 @@ import { useState, useEffect, useRef} from "react";
 import axios from 'axios';
 import { Toast } from 'primereact/toast';
 import { useNavigate } from 'react-router-dom';
+import Footer from './Footer'
 
 const Training = () => {
     let navigate = useNavigate();
@@ -76,6 +77,7 @@ const Training = () => {
                     </DataTable>
                 </div>
             </div>
+            <Footer/>
         </>
     );
 }

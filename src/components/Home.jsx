@@ -4,6 +4,7 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
+import Footer from './Footer'
 
 const Home = () => {
     let navigate = useNavigate();
@@ -47,6 +48,7 @@ const Home = () => {
                     </DataTable>
                 </div>
             </div>
+            <Footer/>
         </>
     );
 }
