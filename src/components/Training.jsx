@@ -9,7 +9,7 @@ const Training = () => {
     const [datos, setDatos] = useState({});
     const header = (
         <div className="p-row-editor-init">
-            Capacitaciones
+            Tus Capacitaciones
         </div>
     );
 
