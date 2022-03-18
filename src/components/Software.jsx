@@ -40,7 +40,7 @@ const Software = () => {
         <div className="card">
           <DataTable value={datos.softs} header={header} showGridlines responsiveLayout="scroll">
             <Column field="name" header="Nombre"></Column>
-            <Column field="role" header="Rol"></Column>
+            <Column field="role" header="Rol" className="capitalize"></Column>
           </DataTable>
         </div>
       </div>

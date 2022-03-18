@@ -25,7 +25,7 @@ const Home = () => {
             </div>
             <div className='grid'>
                 <div className='col'>
-                    <Card title={`Rol: ${datos.role}`} subTitle="Objetivos">
+                    <Card title={`Rol: ${datos.role}`} subTitle="Objetivos" className="uppercase">
                         {datos.objectives}
                     </Card>
                 </div>
