@@ -30,6 +30,10 @@ const Training = () => {
         });
     }, []);
 
+    const dateBodyTemplate = (rowData) => {
+        return <div>{new Date(rowData.start).toLocaleDateString('es-AR')}</div>
+    }
+
     return (
         <>
             <div className='grid'>
@@ -41,7 +45,7 @@ const Training = () => {
                 <div className="card">
                     <DataTable value={datos.courses} header={header} showGridlines responsiveLayout="scroll">
                         <Column field="name" header="Nombre"></Column>
-                        <Column field="start" header="Inicio"></Column>
+                        <Column field="start" header="Inicio" body={dateBodyTemplate}></Column>
                         <Column field="duration" header="Duración"></Column>
                         <Column field="type" header="Tipo"></Column>
                     </DataTable>
