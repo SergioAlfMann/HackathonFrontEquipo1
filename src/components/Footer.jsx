@@ -7,7 +7,7 @@ const Footer = () => {
       url: 'http://ari.telecom.com/'
     },
     {
-      label: 'Mesa de ayuda: 11-333-4444',
+      label: 'Mesa de ayuda: 011-4968-1234',
       icon: 'pi pi-fw pi-phone',
       url: '11-333-4444'
     }
