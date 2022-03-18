@@ -2,6 +2,7 @@
     font-size:x-large
 }
 
+
 /*MEDIA QUERYS*/
 @media (max-width: 320px) {
     .imgLogo {
@@ -13,3 +14,4 @@
 
     }
 }
+

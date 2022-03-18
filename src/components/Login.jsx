@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useFormik } from 'formik';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
@@ -6,12 +6,13 @@ import { Password } from 'primereact/password';
 import { classNames } from 'primereact/utils';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { Toast } from 'primereact/toast';
 import '../css/styles.css';
 
 const Login = () => {
     let navigate = useNavigate();
     const [formData, setFormData] = useState({});
-
+    const toast = useRef(null);
     const formik = useFormik({
         initialValues: {
             email: '',
@@ -41,9 +42,8 @@ const Login = () => {
                 localStorage.setItem("profile", JSON.stringify(response?.data))
                 navigate('home');
             })
-            .catch(error => {
-                console.log(error)
-                alert("Usuario o password incorrectos.")
+            .catch(() => {
+                toast.current.show({severity: 'error', summary: 'Error', detail: 'Usuario o password incorrectos.'});
             });
         }
     });
@@ -55,6 +55,7 @@ const Login = () => {
 
     return (
         <div className='card'>
+             <Toast ref={toast} />
             <div className='flex justify-content-center align-content-center flex-wrap card-container'>
                 <div className="surface-card p-4 shadow-2 border-round w-full lg:w-6">
                     <div className="text-center mb-5">

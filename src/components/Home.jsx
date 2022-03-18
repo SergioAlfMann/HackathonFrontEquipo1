@@ -3,8 +3,10 @@ import { Card } from 'primereact/card';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+    let navigate = useNavigate();
     const [datos, setDatos] = useState({});
     const header = (
         <div className="table-header">
@@ -13,7 +15,14 @@ const Home = () => {
     );
 
     useEffect(() => {
-        setDatos(JSON.parse(localStorage.getItem("profile")));
+        const profile = localStorage.getItem("profile");
+
+        if(profile) {
+            setDatos(JSON.parse(profile));
+        }
+        else{
+            navigate('/');
+        }
     }, []);
 
     return (

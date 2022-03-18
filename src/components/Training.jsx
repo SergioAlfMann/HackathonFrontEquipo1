@@ -2,11 +2,15 @@ import Navbar from "./Navbar";
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Tag } from 'primereact/tag';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef} from "react";
 import axios from 'axios';
+import { Toast } from 'primereact/toast';
+import { useNavigate } from 'react-router-dom';
 
 const Training = () => {
+    let navigate = useNavigate();
     const [datos, setDatos] = useState({});
+    const toast = useRef(null);
     const header = (
         <div className="p-row-editor-init">
             Tus Capacitaciones
@@ -14,21 +18,26 @@ const Training = () => {
     );
 
     useEffect(() => {
-        const access_token = JSON.parse(localStorage.getItem("profile")).access_token;
-     
-        axios.get('https://hackteam1.herokuapp.com/api/training', {
-            headers: {
-              'Authorization': `Bearer ${access_token}`
-            }
-        })
-        .then(response => {
-            console.log(response)
-            setDatos(response?.data[0])
-        })
-        .catch(error => {
-            console.log(error)
-            alert("Se produjo un error al consultar los datos.")
-        });
+        const profile = localStorage.getItem("profile");
+
+        if (profile) {
+            const access_token = JSON.parse(profile).access_token;
+
+            axios.get('https://hackteam1.herokuapp.com/api/training', {
+                headers: {
+                    'Authorization': `Bearer ${access_token}`
+                }
+            })
+                .then(response => {
+                    setDatos(response?.data[0])
+                })
+                .catch(() => {
+                    toast.current.show({ severity: 'error', summary: 'Error', detail: 'Se produjo un error al consultar los datos.' });
+                });
+        }
+        else {
+            navigate('/');
+        }
     }, []);
 
     const dateBodyTemplate = (rowData) => {
@@ -51,6 +60,7 @@ const Training = () => {
 
     return (
         <>
+            <Toast ref={toast} />
             <div className='grid'>
                 <div className='col'>
                     <Navbar index={1} />
