@@ -1,6 +1,7 @@
 import Navbar from "./Navbar";
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
+import { Tag } from 'primereact/tag';
 import { useState, useEffect } from "react";
 import axios from 'axios';
 
@@ -38,6 +39,16 @@ const Training = () => {
         return <div>{rowData.duration} hs.</div>
     }
 
+    const typeBodyTemplate = (rowData) => {
+
+        let status = 'info';
+        if (rowData.type == 'Critical') {
+            status = 'danger'
+        }
+        return <Tag severity={status}>{rowData.type}</Tag>;
+
+    }
+
     return (
         <>
             <div className='grid'>
@@ -51,7 +62,7 @@ const Training = () => {
                         <Column field="name" header="Nombre"></Column>
                         <Column field="start" header="Inicio" body={dateBodyTemplate}></Column>
                         <Column field="duration" header="Duración" body={durationBodyTemplate}></Column>
-                        <Column field="type" header="Tipo"></Column>
+                        <Column field="type" header="Tipo" body={typeBodyTemplate}></Column>
                     </DataTable>
                 </div>
             </div>
