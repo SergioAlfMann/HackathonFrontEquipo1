@@ -1,3 +1,30 @@
+
+Onboarding TELECOM -Equipo 1
+
+Tecnologías utilizadas:
+
+React JS 
+
+Manejo de rutas:
+
+-react-router-dom: V6.2.2
+
+Librerías:
+
+-Formik: Validación de datos ingresados en el formulario de Login. 
+(https://formik.org/docs/api/useFormik)
+
+Controles y UI:
+
+-Primereact. 
+(https://www.primefaces.org/primereact/)
+
+Conexión con el Backend:
+
+-Axios, cliente HTTP simple basado en promesas para el navegador y node.js. 
+(https://axios-http.com/)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
