@@ -31,7 +31,11 @@ const Training = () => {
     }, []);
 
     const dateBodyTemplate = (rowData) => {
-        return <div>{new Date(rowData.start).toLocaleDateString('es-AR')}</div>
+        return <div>{new Date(rowData.start).toLocaleDateString('en-GB')}</div>
+    }
+
+    const durationBodyTemplate = (rowData) => {
+        return <div>{rowData.duration} hs.</div>
     }
 
     return (
@@ -46,7 +50,7 @@ const Training = () => {
                     <DataTable value={datos.courses} header={header} showGridlines responsiveLayout="scroll">
                         <Column field="name" header="Nombre"></Column>
                         <Column field="start" header="Inicio" body={dateBodyTemplate}></Column>
-                        <Column field="duration" header="Duración"></Column>
+                        <Column field="duration" header="Duración" body={durationBodyTemplate}></Column>
                         <Column field="type" header="Tipo"></Column>
                     </DataTable>
                 </div>
