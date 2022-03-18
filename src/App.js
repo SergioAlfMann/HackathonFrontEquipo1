@@ -10,7 +10,6 @@ import Training from './components/Training';
 import Access from './components/Access';
 import Software from './components/Software';
 
-
 function App() {
   return (
     <BrowserRouter>

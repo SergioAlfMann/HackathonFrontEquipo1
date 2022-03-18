@@ -57,7 +57,7 @@ const Login = () => {
             <div className='col-10 col-offset-2'>
                 <div className="surface-card p-4 shadow-2 border-round w-full lg:w-6">
                     <div className="text-center mb-5">
-                        <img src="coder.png" alt="hyper" height={50} className="mb-3" />
+                        <img src="coder.png" alt="logo" height={50} className="mb-3" />
                         <div className="text-900 text-3xl font-medium mb-3">Onboarding de equipo</div>
                     </div>
                     <form onSubmit={formik.handleSubmit} className="p-fluid">

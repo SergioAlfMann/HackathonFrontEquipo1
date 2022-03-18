@@ -7,7 +7,7 @@ import axios from 'axios';
 const Access = () => {
     const [datos, setDatos] = useState({});
     const header = (
-        <div className="table-header">
+        <div className="p-row-editor-init">
             Tus Accesos 
         </div>
     );
@@ -17,11 +17,12 @@ const Access = () => {
      
         axios.get('https://hackteam1.herokuapp.com/api/access', {
             headers: {
-              'Authorization': `token ${access_token}`
+              'Authorization': `Bearer ${access_token}`
             }
         })
         .then(response => {
-            setDatos(response?.data)
+            console.log(response)
+            setDatos(response?.data[0])
         })
         .catch(error => {
             console.log(error)
@@ -38,7 +39,7 @@ const Access = () => {
             </div>
             <div>
                 <div className="card">
-                    <DataTable value={datos} header={header} showGridlines responsiveLayout="scroll">
+                    <DataTable value={datos.accesses} header={header} showGridlines responsiveLayout="scroll">
                         <Column field="name" header="Nombre"></Column>
                         <Column field="description" header="Descripción"></Column>
                     </DataTable>

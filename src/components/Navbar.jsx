@@ -13,7 +13,7 @@ const Navbar = ({index}) => {
     ];
 
     return (
-        <TabMenu model={items} activeIndex={activeIndex} onTabChange={(e) => setActiveIndex(e.value)} />
+        <TabMenu model={items} activeIndex={activeIndex} onTabChange={(e) => setActiveIndex(e.value)}  />
     );
 }
 export default Navbar;
