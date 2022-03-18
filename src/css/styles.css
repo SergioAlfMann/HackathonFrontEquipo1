@@ -1,0 +1,15 @@
+.titulo{
+    font-size:x-large
+}
+
+/*MEDIA QUERYS*/
+@media (max-width: 320px) {
+    .imgLogo {
+      width: 80%
+    }
+    .titulo {
+        font-size:medium;
+        padding:1em
+
+    }
+}

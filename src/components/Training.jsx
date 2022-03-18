@@ -42,7 +42,7 @@ const Training = () => {
     const typeBodyTemplate = (rowData) => {
 
         let status = 'info';
-        if (rowData.type == 'Critical') {
+        if (rowData.type === 'Critical') {
             status = 'danger'
         }
         return <Tag severity={status}>{rowData.type}</Tag>;

@@ -6,6 +6,7 @@ import { Password } from 'primereact/password';
 import { classNames } from 'primereact/utils';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import '../css/styles.css';
 
 const Login = () => {
     let navigate = useNavigate();
@@ -53,12 +54,12 @@ const Login = () => {
     };
 
     return (
-        <div className='grid'>
-            <div className='col-10 col-offset-2'>
+        <div className='card'>
+            <div className='flex justify-content-center align-content-center flex-wrap card-container'>
                 <div className="surface-card p-4 shadow-2 border-round w-full lg:w-6">
                     <div className="text-center mb-5">
-                        <img src="coder.png" alt="logo" height={50} className="mb-3" />
-                        <div className="text-900 text-3xl font-medium mb-3">Onboarding de equipo</div>
+                        <img src="coder.png" alt="logo" height={50} className="mb-3 imgLogo" />
+                        <div className="text-900 font-medium mb-3 titulo">Onboarding de equipo</div>
                     </div>
                     <form onSubmit={formik.handleSubmit} className="p-fluid">
                         <div>
@@ -70,7 +71,7 @@ const Login = () => {
                                 </span>
                                 {getFormErrorMessage('email')}
                             </div>
-                            <div className="field">
+                            <div className="field mt-5">
                                 <span className="p-float-label">
                                     <Password id="password" name="password" value={formik.values.password} onChange={formik.handleChange} toggleMask feedback={false}
                                         className={classNames({ 'p-invalid': isFormFieldValid('password') })} />
